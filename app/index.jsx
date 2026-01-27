@@ -1,23 +1,34 @@
-import { StyleSheet, Text, View , Image} from "react-native";
-import Logo from "../assets/img/Logo.png";
+import { StyleSheet, Text, View, Image } from "react-native";
+import Logo from "../assets/img/logo_dark.png";
 import { Link, Stack } from "expo-router";
+import ThemedView from "../components/ThemedView";
+import ThemedLogo from "../components/ThemedLogo";
+import Spacer from "../components/Spacer";
+import ThemedText from "../components/ThemedText";
 
 const Home = () => {
   return (
-    <View style={styles.container}>
-      
-      <Image source={Logo} style={styles.logo} />
+    <ThemedView style={styles.container}>
+      <View style={styles.container}>
+        <ThemedLogo />
+        <Spacer height={20} />
 
-      <Text style={styles.title}>The number 1</Text>
-      <Text style={{ marginTop: 10 }}>Reading List App</Text>
+        <ThemedText style={styles.title} title={true}>The number 1</ThemedText>
+        <Spacer />
+        <ThemedText>Reading List App</ThemedText>
 
-      <View style={styles.card}>
-        <Text>Hello This is Card.</Text>
+        {/* <View style={styles.card}>
+          <ThemedText>Hello This is Card.</ThemedText>
+        </View> */}
+
+        <Link href="/about" style={styles.link}>
+          <ThemedText>Go To About Page</ThemedText>
+        </Link>
+        <Link href="/contact" style={styles.link}>
+          <ThemedText>Go To Contact Page</ThemedText>
+        </Link>
       </View>
-
-      <Link href="/about" style={styles.link}>Go To About Page</Link>
-      <Link href="/contact" style={styles.link}>Go To Contact Page</Link>
-    </View>
+    </ThemedView>
   );
 };
 
@@ -26,7 +37,6 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -34,7 +44,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "maroon",
+    color: "navy",
   },
   card: {
     backgroundColor: "lightgrey",
@@ -43,14 +53,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
   },
-  logo: {
-    width: 100,
-    height: 100,
-    marginBottom: 20,
+  link: {
+    textDecorationLine: "underline",
+    marginVertical: 10,
   },
-
-  link : {
-      textDecorationLine: 'underline',
-      marginVertical: 10,
-  }
 });
