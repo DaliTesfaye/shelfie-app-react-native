@@ -1,60 +1,51 @@
-import { StyleSheet, Text, View, Image } from "react-native";
-import Logo from "../assets/img/logo_dark.png";
-import { Link, Stack } from "expo-router";
-import ThemedView from "../components/ThemedView";
-import ThemedLogo from "../components/ThemedLogo";
-import Spacer from "../components/Spacer";
-import ThemedText from "../components/ThemedText";
+import { StyleSheet } from 'react-native'
+import { Link } from 'expo-router'
+
+import ThemedView from "../components/ThemedView"
+import ThemedText from "../components/ThemedText"
+import ThemedLogo from "../components/ThemedLogo"
+import Spacer from "../components/Spacer"
 
 const Home = () => {
   return (
     <ThemedView style={styles.container}>
-      <View style={styles.container}>
-        <ThemedLogo />
-        <Spacer height={20} />
+      <ThemedLogo />
+      <Spacer />
 
-        <ThemedText style={styles.title} title={true}>The number 1</ThemedText>
-        <Spacer />
-        <ThemedText>Reading List App</ThemedText>
+      <ThemedText style={styles.title} title={true}>The Number 1</ThemedText>
 
-        {/* <View style={styles.card}>
-          <ThemedText>Hello This is Card.</ThemedText>
-        </View> */}
+      <ThemedText style={{ marginTop: 10, marginBottom: 30 }}>
+        Reading List App
+      </ThemedText>
 
-        <Link href="/about" style={styles.link}>
-          <ThemedText>Go To About Page</ThemedText>
-        </Link>
-        <Link href="/contact" style={styles.link}>
-          <ThemedText>Go To Contact Page</ThemedText>
-        </Link>
-      </View>
+      <Link href="/login" style={styles.link}>
+        <ThemedText>Login</ThemedText>
+      </Link>
+
+      <Link href="/register" style={styles.link}>
+        <ThemedText>Register</ThemedText>
+      </Link>
     </ThemedView>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-
+  img: {
+    marginVertical: 20
+  },
   title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "navy",
-  },
-  card: {
-    backgroundColor: "lightgrey",
-    padding: 20,
-    marginTop: 20,
-    borderRadius: 5,
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+    fontWeight: 'bold',
+    fontSize: 18,
   },
   link: {
-    textDecorationLine: "underline",
     marginVertical: 10,
-  },
-});
+    borderBottomWidth: 1
+  }
+})
