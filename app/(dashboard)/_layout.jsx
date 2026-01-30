@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 import { Tabs } from "expo-router";
 import { Colors } from "../../constants/colors";
 import { useColorScheme } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 const DashnoardLayout = () => {
   const colorScheme = useColorScheme();
@@ -20,9 +21,9 @@ const DashnoardLayout = () => {
         tabBarInactiveTintColor: theme.iconColor,
       }}
     >
-      <Tabs.Screen name="profile" options={{ title: "Profile" }} />
-      <Tabs.Screen name="books" options={{ title: "Books" }} />
-      <Tabs.Screen name="create" options={{ title: "Create" }} />
+      <Tabs.Screen name="profile" options={{ title: "Profile" , tabBarIcon:({focused}) => (<Ionicons name={focused ? "person" : "person-outline"} color={focused ? theme.iconColorFocused : theme.iconColor} size={24} />)} } />
+      <Tabs.Screen name="books" options={{ title: "Books" , tabBarIcon:({focused}) => (<Ionicons name={focused ? "book" : "book-outline"} color={focused ? theme.iconColorFocused : theme.iconColor} size={24} />) }} />
+      <Tabs.Screen name="create" options={{ title: "Create" , tabBarIcon:({focused}) => (<Ionicons name={focused ? "create" : "create-outline"} color={focused ? theme.iconColorFocused : theme.iconColor} size={24} />)}} />
     </Tabs>
   );
 };
