@@ -7,11 +7,11 @@ import Spacer from "../../components/Spacer";
 import { useUser } from "../../hooks/useUser";
 
 const profile = () => {
-  const {logout} = useUser();
+  const { user, logout  } = useUser();
   return (
     <ThemedView style={styles.container}>
       <ThemedText title={true} style={styles.title}>
-        Your email :
+        {user.email}
       </ThemedText>
       <Spacer />
       <ThemedText>Time to read some books !</ThemedText>
